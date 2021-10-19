@@ -1,10 +1,17 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+<?php
+
+use Widget\Contents\Post\Date;
+use Widget\Contents\Post\Recent;
+use Widget\Metas\Category\Rows;
+
+if (!defined('__TYPECHO_ROOT_DIR__')) exit;
+?>
 <div class="col-mb-12 col-offset-1 col-3 kit-hidden-tb" id="secondary" role="complementary">
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentPosts', $this->options->sidebarBlock)): ?>
         <section class="widget">
             <h3 class="widget-title"><?php _e('最新文章'); ?></h3>
             <ul class="widget-list">
-                <?php \Widget\Contents\Post\Recent::alloc()
+                <?php Recent::alloc()
                     ->parse('<li><a href="{permalink}">{title}</a></li>'); ?>
             </ul>
         </section>
@@ -14,10 +21,10 @@
         <section class="widget">
             <h3 class="widget-title"><?php _e('最近回复'); ?></h3>
             <ul class="widget-list">
-                <?php \Widget\Comments\Recent::alloc()->to($comments); ?>
+                <?php Recent::alloc()->to($comments); ?>
                 <?php while ($comments->next()): ?>
                     <li>
-                        <a href="<?php $comments->permalink(); ?>"><?php $comments->author(false); ?></a>: <?php $comments->excerpt(35, '...'); ?>
+                        <a href="<?php $comments->permalink(); ?>"><?php $comments->author(false); ?></a>: <?php $comments->excerpt(35); ?>
                     </li>
                 <?php endwhile; ?>
             </ul>
@@ -27,7 +34,7 @@
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowCategory', $this->options->sidebarBlock)): ?>
         <section class="widget">
             <h3 class="widget-title"><?php _e('分类'); ?></h3>
-            <?php \Widget\Metas\Category\Rows::alloc()->listCategories('wrapClass=widget-list'); ?>
+            <?php Rows::alloc()->listCategories('wrapClass=widget-list'); ?>
         </section>
     <?php endif; ?>
 
@@ -35,7 +42,7 @@
         <section class="widget">
             <h3 class="widget-title"><?php _e('归档'); ?></h3>
             <ul class="widget-list">
-                <?php \Widget\Contents\Post\Date::alloc('type=month&format=F Y')
+                <?php Date::alloc('type=month&format=F Y')
                     ->parse('<li><a href="{permalink}">{date}</a></li>'); ?>
             </ul>
         </section>

@@ -1,4 +1,7 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+<?php
+if (!defined('__TYPECHO_ROOT_DIR__')) exit;
+global $comments;
+?>
 <div id="comments">
     <?php $this->comments()->to($comments); ?>
     <?php if ($comments->have()): ?>
@@ -6,7 +9,7 @@
 
         <?php $comments->listComments(); ?>
 
-        <?php $comments->pageNav('&laquo; 前一页', '后一页 &raquo;'); ?>
+        <?php $comments->pageNav(); ?>
 
     <?php endif; ?>
 
@@ -38,7 +41,7 @@
                     <p>
                         <label
                             for="url"<?php if ($this->options->commentsRequireURL): ?> class="required"<?php endif; ?>><?php _e('网站'); ?></label>
-                        <input type="url" name="url" id="url" class="text" placeholder="<?php _e('http://'); ?>"
+                        <input type="url" name="url" id="url" class="text" placeholder="<?php _e('https://'); ?>"
                                value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
                     </p>
                 <?php endif; ?>

@@ -1,9 +1,13 @@
 <?php
+
+use Typecho\Widget\Helper\Form\Element\Checkbox;
+use Typecho\Widget\Helper\Form\Element\Text;
+
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 function themeConfig($form)
 {
-    $logoUrl = new \Typecho\Widget\Helper\Form\Element\Text(
+    $logoUrl = new Text(
         'logoUrl',
         null,
         null,
@@ -13,7 +17,7 @@ function themeConfig($form)
 
     $form->addInput($logoUrl);
 
-    $sidebarBlock = new \Typecho\Widget\Helper\Form\Element\Checkbox(
+    $sidebarBlock = new Checkbox(
         'sidebarBlock',
         [
             'ShowRecentPosts'    => _t('显示最新文章'),

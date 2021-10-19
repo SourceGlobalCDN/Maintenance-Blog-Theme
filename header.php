@@ -1,8 +1,23 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+<?php
+
+use Widget\Contents\Page\Rows;
+
+if (!defined('__TYPECHO_ROOT_DIR__')) exit;
+$te_version = str_replace("/",".",$this->options->version);
+?>
 <!DOCTYPE HTML>
-<html>
+<html lang="zh-cn">
 <head>
     <meta charset="<?php $this->options->charset(); ?>">
+
+    <!-- PreLoad -->
+    <link rel="dns-prefetch" href="//cdn.ahdark.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="preconnect" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//cdn.ahdark.com" crossorigin>
+
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title><?php $this->archiveTitle([
@@ -13,9 +28,12 @@
         ], '', ' - '); ?><?php $this->options->title(); ?></title>
 
     <!-- 使用url函数转换相关路径 -->
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('normalize.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('grid.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css'); ?>?v=1">
+    <link rel="stylesheet" href="<?php echo '//cdn.ahdark.com/source-site/theme/normalize.css?ver='.$te_version; ?>">
+    <link rel="stylesheet" href="<?php echo '//cdn.ahdark.com/source-site/theme/grid.css?ver='.$te_version; ?>">
+    <link rel="stylesheet" href="<?php echo '//cdn.ahdark.com/source-site/theme/style.css?ver='.$te_version; ?>">
+
+    <!-- 字体引入 -->
+    <link rel="preload" href="//fonts.googleapis.com/css2?family=Lato:wght@100&family=Noto+Sans+SC:wght@400;500&family=Roboto:ital,wght@0,300;0,400;1,400&display=swap" as="style">
 
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
@@ -45,12 +63,12 @@
             <div class="col-mb-12">
                 <nav id="nav-menu" class="clearfix" role="navigation">
                     <a<?php if ($this->is('index')): ?> class="current"<?php endif; ?>
-                        href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
-                    <?php \Widget\Contents\Page\Rows::alloc()->to($pages); ?>
+                            href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
+                    <?php Rows::alloc()->to($pages); ?>
                     <?php while ($pages->next()): ?>
                         <a<?php if ($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?>
-                            href="<?php $pages->permalink(); ?>"
-                            title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
+                                href="<?php $pages->permalink(); ?>"
+                                title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
                     <?php endwhile; ?>
                 </nav>
             </div>
@@ -60,6 +78,3 @@
 <div id="body">
     <div class="container">
         <div class="row">
-
-    
-    
