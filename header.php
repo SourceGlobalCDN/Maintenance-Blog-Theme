@@ -3,7 +3,8 @@
 use Widget\Contents\Page\Rows;
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
-$te_version = str_replace("/",".",$this->options->version);
+$te_version = str_replace("/", ".", $this->options->version);
+$cssMinSuffix = (__TYPECHO_DEBUG__ ?? false) != true ? ".min" : "";
 ?>
 <!DOCTYPE HTML>
 <html lang="zh-cn">
@@ -22,18 +23,19 @@ $te_version = str_replace("/",".",$this->options->version);
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title><?php $this->archiveTitle([
             'category' => _t('分类 %s 下的文章'),
-            'search'   => _t('包含关键字 %s 的文章'),
-            'tag'      => _t('标签 %s 下的文章'),
-            'author'   => _t('%s 发布的文章')
+            'search' => _t('包含关键字 %s 的文章'),
+            'tag' => _t('标签 %s 下的文章'),
+            'author' => _t('%s 发布的文章')
         ], '', ' - '); ?><?php $this->options->title(); ?></title>
 
     <!-- 使用url函数转换相关路径 -->
-    <link rel="stylesheet" href="<?php echo '//cdn.ahdark.com/source-site/theme/normalize.css?ver='.$te_version; ?>">
-    <link rel="stylesheet" href="<?php echo '//cdn.ahdark.com/source-site/theme/grid.css?ver='.$te_version; ?>">
-    <link rel="stylesheet" href="<?php echo '//cdn.ahdark.com/source-site/theme/style.css?ver='.$te_version; ?>">
+    <link rel="stylesheet" href="<?php echo "//cdn.ahdark.com/source-site/theme/assets/css/normalize{$cssMinSuffix}.css?ver=" . $te_version; ?>">
+    <link rel="stylesheet" href="<?php echo "//cdn.ahdark.com/source-site/theme/assets/css/grid.min.css?ver=" . $te_version; ?>">
+    <link rel="stylesheet" href="<?php echo "//cdn.ahdark.com/source-site/theme/assets/css/style.min.css?ver=" . $te_version; ?>">
+    <link rel="stylesheet" href="<?php echo "//cdn.ahdark.com/source-site/theme/assets/css/consolas.min.css?ver=" . $te_version; ?>">
 
     <!-- 字体引入 -->
-    <link rel="preload" href="//fonts.googleapis.com/css2?family=Lato:wght@100&family=Noto+Sans+SC:wght@400;500&family=Roboto:ital,wght@0,300;0,400;1,400&display=swap" as="style">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Lato:wght@100&family=Noto+Sans+SC:wght@400;500&family=Roboto:ital,wght@0,300;0,400;1,400&display=swap">
 
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>

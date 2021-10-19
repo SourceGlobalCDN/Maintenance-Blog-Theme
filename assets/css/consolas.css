@@ -1,0 +1,15 @@
+/* ------------------------------------
+ * Consolas Font Face
+ *
+ * @author  AH-dark
+ * @link    https://ahdark.com
+ * @update  2021-10-19
+ * --------------------------------- */
+
+@font-face {
+    font-family: "Consolas";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(../fonts/consolas.woff2) format('woff2');
+}
