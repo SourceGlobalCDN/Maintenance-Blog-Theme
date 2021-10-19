@@ -12,12 +12,12 @@ $cssMinSuffix = (__TYPECHO_DEBUG__ ?? false) != true ? ".min" : "";
     <meta charset="<?php $this->options->charset(); ?>">
 
     <!-- PreLoad -->
-    <link rel="dns-prefetch" href="//cdn.ahdark.com">
+    <link rel="dns-prefetch" href="//source.ahdark.com">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="preconnect" href="//fonts.googleapis.com">
     <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="//cdn.ahdark.com" crossorigin>
+    <link rel="preconnect" href="//source.ahdark.com" crossorigin>
 
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -29,10 +29,10 @@ $cssMinSuffix = (__TYPECHO_DEBUG__ ?? false) != true ? ".min" : "";
         ], '', ' - '); ?><?php $this->options->title(); ?></title>
 
     <!-- 使用url函数转换相关路径 -->
-    <link rel="stylesheet" href="<?php echo "//cdn.ahdark.com/source-site/theme/assets/css/normalize{$cssMinSuffix}.css?ver=" . $te_version; ?>">
-    <link rel="stylesheet" href="<?php echo "//cdn.ahdark.com/source-site/theme/assets/css/grid.min.css?ver=" . $te_version; ?>">
-    <link rel="stylesheet" href="<?php echo "//cdn.ahdark.com/source-site/theme/assets/css/style.min.css?ver=" . $te_version; ?>">
-    <link rel="stylesheet" href="<?php echo "//cdn.ahdark.com/source-site/theme/assets/css/consolas.min.css?ver=" . $te_version; ?>">
+    <link rel="stylesheet" href="<?php echo "//source.ahdark.com/typecho/theme/Maintenance-Blog-Theme/".MaintenanceBlogThemeVersion."/assets/css/normalize{$cssMinSuffix}.css?ver=" . $te_version; ?>">
+    <link rel="stylesheet" href="<?php echo "//source.ahdark.com/typecho/theme/Maintenance-Blog-Theme/".MaintenanceBlogThemeVersion."/assets/css/grid.min.css?ver=" . $te_version; ?>">
+    <link rel="stylesheet" href="<?php echo "//source.ahdark.com/typecho/theme/Maintenance-Blog-Theme/".MaintenanceBlogThemeVersion."/assets/css/style.min.css?ver=" . $te_version; ?>">
+    <link rel="stylesheet" href="<?php echo "//source.ahdark.com/typecho/theme/Maintenance-Blog-Theme/".MaintenanceBlogThemeVersion."/assets/css/consolas.min.css?ver=" . $te_version; ?>">
 
     <!-- 字体引入 -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Lato:wght@100&family=Noto+Sans+SC:wght@400;500&family=Roboto:ital,wght@0,300;0,400;1,400&display=swap">

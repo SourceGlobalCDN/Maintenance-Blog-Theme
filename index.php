@@ -2,9 +2,9 @@
 /**
  * Default theme modified by AH-dark
  *
- * @package Typecho Replica Theme
+ * @package Maintenance Blog Theme
  * @author AHdark
- * @version 1.2
+ * @version 1.0.1
  * @link https://ahdark.com
  */
 

@@ -3,6 +3,8 @@
 use Typecho\Widget\Helper\Form\Element\Checkbox;
 use Typecho\Widget\Helper\Form\Element\Text;
 
+const MaintenanceBlogThemeVersion = "1.0.1";
+
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 function themeConfig($form)
